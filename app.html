@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisar Documento - ClearDeal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="app-header">
+        <div class="container">
+            <div class="app-nav">
+                <a href="index.html" class="app-brand">
+                    <span class="app-logo">🔍</span>
+                    <span class="app-title">ClearDeal</span>
+                </a>
+                <div class="app-credits">
+                    <span class="credits-label">Análises disponíveis:</span>
+                    <span class="credits-count" id="creditsCount">1 grátis</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container">
+
+            <!-- UPLOAD SECTION -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-card card card-elevated">
+                    <div class="upload-header">
+                        <h1 class="upload-title">Cole ou Envie Seu Documento</h1>
+                        <p class="upload-subtitle">
+                            Contratos, cobranças, termos de uso, propostas de trabalho...<br>
+                            Entenda tudo em menos de 60 segundos.
+                        </p>
+                    </div>
+
+                    <!-- INPUT TABS -->
+                    <div class="input-tabs">
+                        <button class="input-tab active" data-tab="text">
+                            📝 Colar Texto
+                        </button>
+                        <button class="input-tab" data-tab="file">
+                            📄 Upload Arquivo
+                        </button>
+                        <button class="input-tab" data-tab="image">
+                            📸 Print/Foto
+                        </button>
+                    </div>
+
+                    <!-- TEXT INPUT -->
+                    <div class="input-panel active" id="textPanel">
+                        <div class="input-group">
+                            <label class="input-label">Cole o texto do documento aqui:</label>
+                            <textarea class="textarea" id="documentText" placeholder="Cole aqui: contrato, termo de uso, cobrança, proposta de trabalho, email...
+
+Exemplo: 'Contrato de assinatura mensal no valor de R$ 99,90 com renovação automática. Cancelamento deve ser solicitado com 30 dias de antecedência...'
+" rows="12"></textarea>
+                            <div class="input-hint">
+                                <span id="charCount">0</span> caracteres
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FILE UPLOAD -->
+                    <div class="input-panel" id="filePanel">
+                        <div class="upload-zone" id="uploadZone">
+                            <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" hidden>
+                            <div class="upload-icon">📄</div>
+                            <p class="upload-text">
+                                Arraste o arquivo aqui ou <span class="upload-link">clique para selecionar</span>
+                            </p>
+                            <p class="upload-formats">PDF, DOC, DOCX, TXT</p>
+                        </div>
+                        <div class="file-preview" id="filePreview"></div>
+                    </div>
+
+                    <!-- IMAGE UPLOAD -->
+                    <div class="input-panel" id="imagePanel">
+                        <div class="upload-zone" id="imageZone">
+                            <input type="file" id="imageInput" accept="image/*" hidden>
+                            <div class="upload-icon">📸</div>
+                            <p class="upload-text">
+                                Tire uma foto ou <span class="upload-link">selecione uma imagem</span>
+                            </p>
+                            <p class="upload-formats">Print de WhatsApp, Email, Contrato...</p>
+                        </div>
+                        <div class="image-preview" id="imagePreview"></div>
+                    </div>
+
+                    <!-- CONTEXT SELECTION -->
+                    <div class="context-section">
+                        <label class="input-label">Tipo de documento:</label>
+                        <div class="context-grid">
+                            <button class="context-btn active" data-context="contrato">
+                                <span class="context-icon">📋</span>
+                                <span class="context-name">Contrato</span>
+                            </button>
+                            <button class="context-btn" data-context="cobranca">
+                                <span class="context-icon">💳</span>
+                                <span class="context-name">Cobrança</span>
+                            </button>
+                            <button class="context-btn" data-context="assinatura">
+                                <span class="context-icon">✍️</span>
+                                <span class="context-name">Assinatura</span>
+                            </button>
+                            <button class="context-btn" data-context="trabalho">
+                                <span class="context-icon">💼</span>
+                                <span class="context-name">Proposta Trabalho</span>
+                            </button>
+                            <button class="context-btn" data-context="termo">
+                                <span class="context-icon">📱</span>
+                                <span class="context-name">Termo de Uso</span>
+                            </button>
+                            <button class="context-btn" data-context="outro">
+                                <span class="context-icon">📄</span>
+                                <span class="context-name">Outro</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ANALYZE BUTTON -->
+                    <button class="btn btn-primary btn-lg analyze-btn" id="analyzeBtn" style="width: 100%;">
+                        <span>🔍 Analisar Documento</span>
+                    </button>
+
+                    <!-- TRUST INDICATORS -->
+                    <div class="upload-trust">
+                        <div class="trust-item">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" />
+                            </svg>
+                            <span>Seus dados são privados e criptografados</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                            </svg>
+                            <span>Primeira análise totalmente grátis</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RESULT SECTION -->
+            <section class="result-section hidden" id="resultSection">
+                <div class="result-header">
+                    <button class="btn btn-secondary" id="newAnalysisBtn">
+                        ← Nova Análise
+                    </button>
+                    <div class="result-actions">
+                        <button class="btn btn-secondary btn-sm" id="saveBtn">
+                            💾 Salvar
+                        </button>
+                        <button class="btn btn-secondary btn-sm" id="shareBtn">
+                            📤 Compartilhar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STRUCTURED OUTPUT - FIXED FORMAT -->
+                <div class="result-card card card-elevated">
+
+                    <!-- RISK LEVEL BANNER -->
+                    <div class="risk-banner" id="riskBanner">
+                        <div class="risk-icon">⚠️</div>
+                        <div class="risk-content">
+                            <div class="risk-level">Nível de Risco: <strong id="riskLevel">Alto</strong></div>
+                            <div class="risk-message" id="riskMessage">Este documento contém cláusulas potencialmente
+                                prejudiciais</div>
+                        </div>
+                    </div>
+
+                    <!-- 1. RESUMO HUMANO -->
+                    <div class="result-section-block">
+                        <div class="result-section-header">
+                            <span class="result-section-icon">📝</span>
+                            <h2 class="result-section-title">1. Em Resumo (Português Claro)</h2>
+                        </div>
+                        <div class="result-section-content" id="resumoContent">
+                            <p>Carregando análise...</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. PONTOS DE ATENÇÃO -->
+                    <div class="result-section-block">
+                        <div class="result-section-header">
+                            <span class="result-section-icon">⚠️</span>
+                            <h2 class="result-section-title">2. Pontos de Atenção (Pegadinhas e Riscos)</h2>
+                        </div>
+                        <div class="result-section-content">
+                            <ul class="attention-list" id="atencaoList">
+                                <li>Carregando...</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 3. O QUE VOCÊ PODE FAZER -->
+                    <div class="result-section-block">
+                        <div class="result-section-header">
+                            <span class="result-section-icon">🎯</span>
+                            <h2 class="result-section-title">3. O Que Você Pode Fazer Agora</h2>
+                        </div>
+                        <div class="result-section-content">
+                            <ul class="action-list" id="acoesListpode">
+                                <li>Carregando...</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 4. O QUE NÃO FAZER -->
+                    <div class="result-section-block">
+                        <div class="result-section-header">
+                            <span class="result-section-icon">🚫</span>
+                            <h2 class="result-section-title">4. O Que NÃO Fazer (Erros Comuns)</h2>
+                        </div>
+                        <div class="result-section-content">
+                            <ul class="warning-list" id="acoesListnao">
+                                <li>Carregando...</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 5. ANÁLISE DE CUSTO REAL (se aplicável) -->
+                    <div class="result-section-block" id="custoBlock">
+                        <div class="result-section-header">
+                            <span class="result-section-icon">💰</span>
+                            <h2 class="result-section-title">5. Custo Real e Implicações Financeiras</h2>
+                        </div>
+                        <div class="result-section-content" id="custoContent">
+                            <p>Carregando...</p>
+                        </div>
+                    </div>
+
+                    <!-- DISCLAIMER -->
+                    <div class="result-disclaimer">
+                        <strong>⚖️ Importante:</strong> Esta análise é educacional e não substitui consultoria jurídica
+                        profissional.
+                        Para questões complexas, consulte um advogado registrado na OAB.
+                    </div>
+                </div>
+
+                <!-- CTA FOR MORE ANALYSES -->
+                <div class="more-analyses-cta card" id="moreCTA">
+                    <div class="cta-content">
+                        <h3 class="cta-title">Precisa analisar mais documentos?</h3>
+                        <p class="cta-description">Continue protegendo seus direitos e seu dinheiro</p>
+                        <div class="cta-buttons">
+                            <a href="pricing.html" class="btn btn-success">Ver Planos e Pacotes</a>
+                            <button class="btn btn-primary" id="buyOneBtn">Comprar 1 Análise (R$ 9)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- LOADING MODAL -->
+    <div class="modal hidden" id="loadingModal">
+        <div class="modal-content">
+            <div class="loading-spinner"></div>
+            <h3 class="loading-title">Analisando seu documento...</h3>
+            <p class="loading-text">Identificando riscos, cláusulas e pegadinhas</p>
+            <div class="loading-progress">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Planos e preços do ClearDeal - Entenda seus contratos sem juridiquês">
+    <title>Preços - ClearDeal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pricing.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-logo">🔍</span>
+                <span class="nav-title">ClearDeal</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#como-funciona" class="nav-link">Como Funciona</a>
+                <a href="index.html#exemplos" class="nav-link">Exemplos</a>
+                <a href="pricing.html" class="nav-link">Preços</a>
+                <a href="app.html" class="btn btn-primary btn-sm">Começar Grátis</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pricing-page">
+
+        <!-- HERO -->
+        <section class="pricing-hero">
+            <div class="container">
+                <div class="pricing-hero-content">
+                    <h1 class="pricing-hero-title">
+                        Preços Simples e Justos
+                    </h1>
+                    <p class="pricing-hero-subtitle">
+                        Sem mensalidade obrigatória. Sem pegadinhas.<br>
+                        <strong>Pague só pelas análises que você precisa.</strong>
+                    </p>
+                    <div class="pricing-hero-badge">
+                        <span class="badge badge-success">✅ Primeira análise 100% grátis</span>
+                        <span class="badge badge-primary">💯 Garantia de satisfação</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING TOGGLE -->
+        <section class="pricing-toggle-section">
+            <div class="container">
+                <div class="pricing-toggle">
+                    <button class="toggle-btn active" data-plan="payperuse">
+                        💳 Pague Por Uso
+                    </button>
+                    <button class="toggle-btn" data-plan="packages">
+                        📦 Pacotes (Economize até 50%)
+                    </button>
+                    <button class="toggle-btn" data-plan="subscription">
+                        ♾️ Assinatura Mensal
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAY PER USE -->
+        <section class="pricing-plans active" id="payperuse">
+            <div class="container">
+                <div class="pricing-grid">
+
+                    <div class="pricing-plan card">
+                        <div class="plan-header">
+                            <h3 class="plan-name">Análise Básica</h3>
+                            <div class="plan-price">
+                                <span class="plan-currency">R$</span>
+                                <span class="plan-value">9</span>
+                                <span class="plan-period">/análise</span>
+                            </div>
+                            <p class="plan-description">Perfeito para documentos simples</p>
+                        </div>
+
+                        <ul class="plan-features">
+                            <li>✅ Resumo em português claro</li>
+                            <li>✅ Identificação de riscos principais</li>
+                            <li>✅ Recomendações práticas</li>
+                            <li>✅ Análise em até 60 segundos</li>
+                            <li>✅ Salvar resultado (7 dias)</li>
+                            <li>❌ Análise jurídica profunda</li>
+                            <li>❌ Detecção de custos ocultos</li>
+                            <li>❌ Suporte prioritário</li>
+                        </ul>
+
+                        <button class="btn btn-secondary plan-cta" onclick="buyPlan('basic', 9)">
+                            Comprar Agora
+                        </button>
+
+                        <div class="plan-use-case">
+                            <small><strong>Ideal para:</strong> Termos de uso, assinaturas simples, emails de
+                                cobrança</small>
+                        </div>
+                    </div>
+
+                    <div class="pricing-plan card card-featured">
+                        <div class="plan-badge">
+                            <span class="badge badge-success">⭐ Mais Popular</span>
+                        </div>
+                        <div class="plan-header">
+                            <h3 class="plan-name">Análise Detalhada</h3>
+                            <div class="plan-price">
+                                <span class="plan-currency">R$</span>
+                                <span class="plan-value">19</span>
+                                <span class="plan-period">/análise</span>
+                            </div>
+                            <p class="plan-description">Recomendado para a maioria dos casos</p>
+                        </div>
+
+                        <ul class="plan-features">
+                            <li>✅ <strong>Tudo da Básica +</strong></li>
+                            <li>✅ Análise jurídica detalhada</li>
+                            <li>✅ Cálculo de custo real completo</li>
+                            <li>✅ Detecção de taxas e juros ocultos</li>
+                            <li>✅ Citação de leis aplicáveis (CDC, CLT)</li>
+                            <li>✅ Salvar resultado (30 dias)</li>
+                            <li>✅ Exportar PDF</li>
+                            <li>✅ Suporte por email</li>
+                        </ul>
+
+                        <button class="btn btn-success plan-cta" onclick="buyPlan('detailed', 19)">
+                            Comprar Agora
+                        </button>
+
+                        <div class="plan-use-case">
+                            <strong>Ideal para:</strong> Contratos de trabalho, aluguel, financiamentos, compras
+                            parceladas
+                        </div>
+                    </div>
+
+                    <div class="pricing-plan card">
+                        <div class="plan-header">
+                            <h3 class="plan-name">Análise Jurídica</h3>
+                            <div class="plan-price">
+                                <span class="plan-currency">R$</span>
+                                <span class="plan-value">29</span>
+                                <span class="plan-period">/análise</span>
+                            </div>
+                            <p class="plan-description">Máxima profundidade e precisão</p>
+                        </div>
+
+                        <ul class="plan-features">
+                            <li>✅ <strong>Tudo da Detalhada +</strong></li>
+                            <li>✅ Análise cláusula por cláusula</li>
+                            <li>✅ Identificação de abusividades</li>
+                            <li>✅ Modelo de contestação (quando aplicável)</li>
+                            <li>✅ Simulações de cenários financeiros</li>
+                            <li>✅ Salvar resultado (ilimitado)</li>
+                            <li>✅ Suporte prioritário WhatsApp</li>
+                            <li>✅ Consultoria básica incluída</li>
+                        </ul>
+
+                        <button class="btn btn-primary plan-cta" onclick="buyPlan('juridica', 29)">
+                            Comprar Agora
+                        </button>
+
+                        <div class="plan-use-case">
+                            <strong>Ideal para:</strong> Contratos complexos, propostas empresariais, documentos de alto
+                            valor
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PACKAGES -->
+        <section class="pricing-plans" id="packages">
+            <div class="container">
+                <div class="pricing-grid">
+
+                    <div class="pricing-plan card">
+                        <div class="plan-header">
+                            <h3 class="plan-name">Pacote Starter</h3>
+                            <div class="plan-price">
+                                <span class="plan-currency">R$</span>
+                                <span class="plan-value">35</span>
+                            </div>
+                            <div class="plan-savings">
+                                <span class="savings-badge">Economize R$ 10</span>
+                            </div>
+                            <p class="plan-description">5 análises detalhadas</p>
+                        </div>
+
+                        <ul class="plan-features">
+                            <li>✅ <strong>5 análises detalhadas</strong></li>
+                            <li>✅ R$ 7,00 por análise (vs R$ 19)</li>
+                            <li>✅ Todos os recursos da análise detalhada</li>
+                            <li>✅ Créditos nunca expiram</li>
+                            <li>✅ Use quando precisar</li>
+                        </ul>
+
+                        <button class="btn btn-secondary plan-cta" onclick="buyPackage('starter', 35, 5)">
+                            Comprar Pacote
+                        </button>
+
+                        <div class="plan-economics">
+                            <div class="economics-item">
+                                <span class="economics-label">Valor por análise:</span>
+                                <span class="economics-value">R$ 7,00</span>
+                            </div>
+                            <div class="economics-item">
+                                <span class="economics-label">Economia total:</span>
+                                <span class="economics-value savings">R$ 10,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-plan card card-featured">
+                        <div class="plan-badge">
+                            <span class="badge badge-success">💎 Melhor Custo-Benefício</span>
+                        </div>
+                        <div class="plan-header">
+                            <h3 class="plan-name">Pacote Professional</h3>
+                            <div class="plan-price">
+                                <span class="plan-currency">R$</span>
+                                <span class="plan-value">60</span>
+                            </div>
+                            <div class="plan-savings">
+                                <span class="savings-badge">Economize R$ 70</span>
+                            </div>
+                            <p class="plan-description">10 análises detalhadas</p>
+                        </div>
+
+                        <ul class="plan-features">
+                            <li>✅ <strong>10 análises detalhadas</strong></li>
+                            <li>✅ R$ 6,00 por análise (vs R$ 19)</li>
+                            <li>✅ Todos os recursos da análise detalhada</li>
+                            <li>✅ Créditos nunca expiram</li>
+                            <li>✅ Suporte prioritário</li>
+                            <li>🎁 <strong>Bônus:</strong> 1 análise jurídica grátis</li>
+                        </ul>
+
+                        <button class="btn btn-success plan-cta" onclick="buyPackage('professional', 60, 10)">
+                            Comprar Pacote
+                        </button>
+
+                        <div class="plan-economics">
+                            <div class="economics-item">
+                                <span class="economics-label">Valor por análise:</span>
+                                <span class="economics-value">R$ 6,00</span>
+                            </div>
+                            <div class="economics-item">
+                                <span class="economics-label">Economia total:</span>
+                                <span class="economics-value savings">R$ 70,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-plan card">
+                        <div class="plan-header">
+                            <h3 class="plan-name">Pacote Business</h3>
+                            <div class="plan-price">
+                                <span class="plan-currency">R$</span>
+                                <span class="plan-value">100</span>
+                            </div>
+                            <div class="plan-savings">
+                                <span class="savings-badge">Economize R$ 180</span>
+                            </div>
+                            <p class="plan-description">20 análises detalhadas</p>
+                        </div>
+
+                        <ul class="plan-features">
+                            <li>✅ <strong>20 análises detalhadas</strong></li>
+                            <li>✅ R$ 5,00 por análise (vs R$ 19)</li>
+                            <li>✅ Todos os recursos da análise detalhada</li>
+                            <li>✅ Créditos nunca expiram</li>
+                            <li>✅ Suporte WhatsApp prioritário</li>
+                            <li>🎁 <strong>Bônus:</strong> 3 análises jurídicas grátis</li>
+                            <li>🎁 Consultoria de 30min grátis</li>
+                        </ul>
+
+                        <button class="btn btn-primary plan-cta" onclick="buyPackage('business', 100, 20)">
+                            Comprar Pacote
+                        </button>
+
+                        <div class="plan-economics">
+                            <div class="economics-item">
+                                <span class="economics-label">Valor por análise:</span>
+                                <span class="economics-value">R$ 5,00</span>
+                            </div>
+                            <div class="economics-item">
+                                <span class="economics-label">Economia total:</span>
+                                <span class="economics-value savings">R$ 180,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SUBSCRIPTION -->
+        <section class="pricing-plans" id="subscription">
+            <div class="container">
+                <div class="pricing-grid pricing-grid-2col">
+
+                    <div class="pricing-plan card">
+                        <div class="plan-header">
+                            <h3 class="plan-name">Plano Mensal</h3>
+                            <div class="plan-price">
+                                <span class="plan-currency">R$</span>
+                                <span class="plan-value">49</span>
+                                <span class="plan-period">/mês</span>
+                            </div>
+                            <p class="plan-description">Para quem precisa analisar regularmente</p>
+                        </div>
+
+                        <ul class="plan-features">
+                            <li>✅ <strong>15 análises detalhadas/mês</strong></li>
+                            <li>✅ R$ 3,27 por análise</li>
+                            <li>✅ Todos os recursos incluídos</li>
+                            <li>✅ Histórico ilimitado</li>
+                            <li>✅ Dashboard de análises</li>
+                            <li>✅ Suporte prioritário</li>
+                            <li>✅ Cancele quando quiser</li>
+                            <li>⚠️ Créditos não usados expiram no fim do mês</li>
+                        </ul>
+
+                        <button class="btn btn-secondary plan-cta" onclick="subscribe('mensal', 49)">
+                            Assinar Agora
+                        </button>
+
+                        <div class="plan-use-case">
+                            <strong>Ideal para:</strong> Freelancers, MEIs, profissionais autônomos
+                        </div>
+                    </div>
+
+                    <div class="pricing-plan card card-featured">
+                        <div class="plan-badge">
+                            <span class="badge badge-success">🚀 Para Empresas</span>
+                        </div>
+                        <div class="plan-header">
+                            <h3 class="plan-name">Plano Ilimitado</h3>
+                            <div class="plan-price">
+                                <span class="plan-currency">R$</span>
+                                <span class="plan-value">99</span>
+                                <span class="plan-period">/mês</span>
+                            </div>
+                            <p class="plan-description">Análises sem limites</p>
+                        </div>
+
+                        <ul class="plan-features">
+                            <li>✅ <strong>Análises ILIMITADAS</strong></li>
+                            <li>✅ Todos os tipos de análise incluídos</li>
+                            <li>✅ Múltiplos usuários (até 5)</li>
+                            <li>✅ Dashboard empresarial</li>
+                            <li>✅ Histórico completo</li>
+                            <li>✅ API de integração</li>
+                            <li>✅ Suporte WhatsApp dedicado</li>
+                            <li>✅ Consultoria mensal incluída</li>
+                        </ul>
+
+                        <button class="btn btn-success plan-cta" onclick="subscribe('ilimitado', 99)">
+                            Assinar Agora
+                        </button>
+
+                        <div class="plan-use-case">
+                            <strong>Ideal para:</strong> Pequenas empresas, escritórios, consultorias
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPARISON TABLE -->
+        <section class="comparison-section">
+            <div class="container">
+                <h2 class="section-title text-center">Compare Todos os Planos</h2>
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Recursos</th>
+                                <th>Básica<br><small>R$ 9</small></th>
+                                <th>Detalhada<br><small>R$ 19</small></th>
+                                <th>Jurídica<br><small>R$ 29</small></th>
+                                <th>Mensal<br><small>R$ 49/mês</small></th>
+                                <th>Ilimitado<br><small>R$ 99/mês</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Resumo em português claro</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Identificação de riscos</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Análise jurídica profunda</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Cálculo de custo real</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Citação de leis (CDC, CLT)</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Análise cláusula por cláusula</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Modelo de contestação</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Exportar PDF</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Múltiplos usuários</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Suporte</td>
+                                <td>Email</td>
+                                <td>Email</td>
+                                <td>WhatsApp</td>
+                                <td>WhatsApp</td>
+                                <td>Dedicado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="container container-md">
+                <h2 class="section-title text-center">Perguntas Frequentes</h2>
+
+                <div class="faq-list">
+                    <div class="faq-item card">
+                        <div class="faq-question">
+                            <h3>Como funciona a primeira análise grátis?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Você pode fazer UMA análise completa gratuitamente, sem precisar cadastrar cartão de
+                                crédito. É uma análise detalhada de verdade, com todos os recursos. Depois disso, você
+                                escolhe se quer comprar mais análises avulsas ou assinar um plano.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card">
+                        <div class="faq-question">
+                            <h3>Os créditos dos pacotes expiram?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>NÃO! Quando você compra um pacote (5, 10 ou 20 análises), os créditos são seus para
+                                sempre. Use quando precisar, sem pressa. Somente nas assinaturas mensais os créditos não
+                                usados expiram no fim do mês.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card">
+                        <div class="faq-question">
+                            <h3>Posso cancelar a assinatura quando quiser?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SIM, sem nenhuma multa ou pegadinha. Você cancela quando quiser pelo próprio painel. Não
+                                cobramos taxa de cancelamento e você não fica preso por meses. Se cancelar, seu plano
+                                continua ativo até o fim do período que você já pagou.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card">
+                        <div class="faq-question">
+                            <h3>A análise substitui um advogado?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>NÃO. O ClearDeal é uma ferramenta educacional que traduz documentos legais para linguagem
+                                simples e identifica riscos comuns. Para questões complexas, processos ou quando você
+                                precisar de representação legal, sempre consulte um advogado registrado na OAB.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card">
+                        <div class="faq-question">
+                            <h3>Vocês guardam meus documentos?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Seus documentos são criptografados e processados apenas para gerar a análise. Nós NÃO
+                                compartilhamos, vendemos ou usamos para treinar IAs. Você pode deletar suas análises a
+                                qualquer momento. Leia nossa <a href="privacidade.html">Política de Privacidade</a>
+                                completa.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card">
+                        <div class="faq-question">
+                            <h3>E se eu não gostar da análise?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Garantimos 100% de satisfação. Se a análise não te ajudou de forma alguma, devolvemos seu
+                                dinheiro sem perguntas. Só pedimos que nos diga o motivo para melhorarmos o serviço.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="final-cta">
+            <div class="container text-center">
+                <h2 class="cta-title">Comece Agora, Grátis</h2>
+                <p class="cta-description">
+                    Analise seu primeiro documento sem custo nenhum.<br>
+                    Sem cartão de crédito. Sem compromisso.
+                </p>
+                <a href="app.html" class="btn btn-success btn-lg">
+                    🔍 Analisar Meu Primeiro Documento Grátis
+                </a>
+                <p class="cta-trust">
+                    ✅ Resultado em menos de 60 segundos · 🔒 100% privado e seguro
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="footer-logo">🔍</span>
+                        <span class="footer-title">ClearDeal</span>
+                    </div>
+                    <p class="footer-description">
+                        Entenda exatamente o que você está aceitando.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Produto</h4>
+                    <ul class="footer-links">
+                        <li><a href="app.html">Analisar Documento</a></li>
+                        <li><a href="pricing.html">Preços</a></li>
+                        <li><a href="index.html#como-funciona">Como Funciona</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                        <li><a href="privacidade.html">Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contato@cleardeal.com">contato@cleardeal.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ClearDeal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="pricing.js"></script>
+</body>
+
+</html>

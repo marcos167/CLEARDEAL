@@ -1,0 +1,472 @@
+/* ============================================
+   CLEARDEAL - Pricing Page Styles
+   ============================================ */
+
+/* === PRICING HERO === */
+.pricing-hero {
+    padding: 120px 0 var(--spacing-3xl);
+    background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(26, 86, 219, 0.05) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.pricing-hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: var(--spacing-md);
+}
+
+.pricing-hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.pricing-hero-subtitle strong {
+    color: var(--color-text-primary);
+}
+
+.pricing-hero-badge {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* === PRICING TOGGLE === */
+.pricing-toggle-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 70px;
+    z-index: 50;
+}
+
+.pricing-toggle {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.toggle-btn {
+    flex: 1;
+    min-width: 200px;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.toggle-btn:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.toggle-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-lg);
+}
+
+/* === PRICING PLANS === */
+.pricing-plans {
+    display: none;
+    padding: var(--spacing-3xl) 0;
+}
+
+.pricing-plans.active {
+    display: block;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-grid-2col {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.pricing-plan {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all var(--transition-base);
+    border: 2px solid var(--color-border);
+}
+
+.pricing-plan:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-featured {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.card-featured:hover {
+    transform: scale(1.05) translateY(-8px);
+}
+
+.plan-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* === PLAN HEADER === */
+.plan-header {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.plan-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.plan-currency {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+}
+
+.plan-value {
+    font-size: 3.5rem;
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.plan-period {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+}
+
+.plan-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+}
+
+.plan-savings {
+    margin: var(--spacing-sm) 0;
+}
+
+.savings-badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: rgba(5, 150, 105, 0.1);
+    color: var(--color-success);
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-full);
+}
+
+/* === PLAN FEATURES === */
+.plan-features {
+    flex: 1;
+    list-style: none;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.plan-features li strong {
+    color: var(--color-text-primary);
+}
+
+/* === PLAN CTA === */
+.plan-cta {
+    margin: 0 var(--spacing-lg) var(--spacing-lg);
+    width: auto;
+}
+
+/* === PLAN USE CASE === */
+.plan-use-case {
+    padding: var(--spacing-lg);
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.plan-use-case strong {
+    color: var(--color-text-primary);
+}
+
+/* === PLAN ECONOMICS === */
+.plan-economics {
+    padding: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.economics-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.economics-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.economics-value {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+}
+
+.economics-value.savings {
+    color: var(--color-success);
+}
+
+/* === COMPARISON TABLE === */
+.comparison-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-secondary);
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin-top: var(--spacing-2xl);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.comparison-table thead {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.comparison-table th {
+    padding: var(--spacing-lg);
+    text-align: center;
+    font-weight: var(--font-weight-semibold);
+}
+
+.comparison-table th small {
+    display: block;
+    margin-top: var(--spacing-xs);
+    opacity: 0.9;
+    font-weight: var(--font-weight-normal);
+}
+
+.comparison-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.comparison-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.comparison-table tbody tr:hover {
+    background: var(--color-bg-secondary);
+}
+
+.comparison-table td {
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+}
+
+.comparison-table td:first-child {
+    text-align: left;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+/* === FAQ === */
+.faq-section {
+    padding: var(--spacing-3xl) 0;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-2xl);
+}
+
+.faq-item {
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.faq-question h3 {
+    font-size: 1.125rem;
+    margin: 0;
+    color: var(--color-text-primary);
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    flex-shrink: 0;
+    transition: transform var(--transition-base);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding-top: var(--spacing-md);
+}
+
+.faq-answer p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.faq-answer a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* === FINAL CTA === */
+.final-cta {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-description {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.6;
+}
+
+.cta-trust {
+    margin-top: var(--spacing-lg);
+    color: var(--color-text-tertiary);
+    font-size: 0.875rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .card-featured {
+        transform: none;
+    }
+
+    .card-featured:hover {
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-toggle {
+        flex-direction: column;
+    }
+
+    .toggle-btn {
+        min-width: auto;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-grid-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-table {
+        font-size: 0.875rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: var(--spacing-sm);
+    }
+}
