@@ -2,63 +2,30 @@
 // "Entenda exatamente o que você está aceitando"
 
 // ============================================
-// STATE MANAGEMENT
+// APPLICATION STATE MANAGEMENT (with Supabase)
 // ============================================
-
 const AppState = {
-    credits: 1, // 1 free analysis
-    currentContext: 'contrato',
-    currentInputType: 'text',
-    documentContent: '',
-    lastAnalysis: null,
-
-    // Payment tracking
-    usedFreeAnalysis: localStorage.getItem('cleardeal_used_free') === 'true',
-    purchasedCredits: parseInt(localStorage.getItem('cleardeal_credits') || '0'),
-
-    init() {
-        if (this.usedFreeAnalysis) {
-            this.credits = this.purchasedCredits;
+    if(this.credits > 0) {
+        this.credits--;
+if (!this.usedFreeAnalysis) {
+    this.usedFreeAnalysis = true;
+    localStorage.setItem('cleardeal_used_free', 'true');
+} else {
+    this.purchasedCredits--;
+    localStorage.setItem('cleardeal_credits', this.purchasedCredits.toString());
+}
+this.updateCreditsDisplay();
+return true;
         }
-        this.updateCreditsDisplay();
+return false;
     },
 
-    updateCreditsDisplay() {
-        const creditsCount = document.getElementById('creditsCount');
-        if (creditsCount) {
-            if (this.credits === 1 && !this.usedFreeAnalysis) {
-                creditsCount.textContent = '1 grátis';
-            } else if (this.credits === 0) {
-                creditsCount.textContent = '0 (comprar)';
-                creditsCount.style.color = 'var(--color-danger)';
-            } else {
-                creditsCount.textContent = this.credits;
-            }
-        }
-    },
-
-    useCredit() {
-        if (this.credits > 0) {
-            this.credits--;
-            if (!this.usedFreeAnalysis) {
-                this.usedFreeAnalysis = true;
-                localStorage.setItem('cleardeal_used_free', 'true');
-            } else {
-                this.purchasedCredits--;
-                localStorage.setItem('cleardeal_credits', this.purchasedCredits.toString());
-            }
-            this.updateCreditsDisplay();
-            return true;
-        }
-        return false;
-    },
-
-    addCredits(amount) {
-        this.purchasedCredits += amount;
-        this.credits += amount;
-        localStorage.setItem('cleardeal_credits', this.purchasedCredits.toString());
-        this.updateCreditsDisplay();
-    }
+addCredits(amount) {
+    this.purchasedCredits += amount;
+    this.credits += amount;
+    localStorage.setItem('cleardeal_credits', this.purchasedCredits.toString());
+    this.updateCreditsDisplay();
+}
 };
 
 

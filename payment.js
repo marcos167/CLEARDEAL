@@ -73,9 +73,17 @@ const PaymentHandler = {
     // Criar preferência de pagamento
     async createPreference(planId) {
         const plan = this.plans[planId];
-
         if (!plan) {
-            throw new Error('Plano não encontrado');
+            throw new Error('Invalid plan');
+        }
+
+        // Get user ID if logged in
+        let userId = null;
+        if (window.Auth) {
+            const user = await window.Auth.getUser();
+            if (user) {
+                userId = user.id;
+            }
         }
 
         const preferenceData = {
@@ -87,29 +95,37 @@ const PaymentHandler = {
                 unit_price: plan.price,
                 currency_id: 'BRL'
             }],
+            back_urls: {
+                success: `${window.location.origin}/success.html`,
+                failure: `${window.location.origin}/failure.html`,
+                pending: `${window.location.origin}/pending.html`
+            },
+            auto_return: 'approved',
             metadata: {
                 plan_id: planId,
                 plan_type: plan.type,
-                credits: plan.credits
+                credits: plan.credits,
+                user_id: userId // Include user ID if logged in
             }
         };
 
         try {
-            // Chamar API para criar preferência
             const response = await fetch('/api/create-preference', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify(preferenceData)
             });
 
             if (!response.ok) {
-                throw new Error('Erro ao criar preferência de pagamento');
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
 
             const data = await response.json();
             return data;
         } catch (error) {
-            console.error('Erro ao criar preferência:', error);
+            console.error('Create preference error:', error);
             throw error;
         }
     },
