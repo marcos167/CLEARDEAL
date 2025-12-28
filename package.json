@@ -7,7 +7,25 @@
     "build": "echo 'Static site - no build needed'",
     "start": "npx serve . -p 3000"
   },
-  "keywords": ["contratos", "documentos", "análise", "jurídico"],
+  "keywords": [
+    "contratos",
+    "documentos",
+    "análise",
+    "jurídico"
+  ],
   "author": "ClearDeal",
-  "license": "MIT"
+  "license": "MIT",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcos167/CLEARDEAL.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/marcos167/CLEARDEAL/issues"
+  },
+  "homepage": "https://github.com/marcos167/CLEARDEAL#readme",
+  "dependencies": {
+    "mercadopago": "^2.11.0"
+  }
 }

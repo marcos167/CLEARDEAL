@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Aprovado - ClearDeal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="logo.css">
+    <style>
+        .success-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-success) 100%);
+        }
+
+        .success-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: bounce 0.6s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .success-title {
+            color: var(--color-success);
+            margin-bottom: 1rem;
+        }
+
+        .success-message {
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="success-page">
+        <div class="success-card">
+            <div class="success-icon">✅</div>
+            <h1 class="success-title">Pagamento Aprovado!</h1>
+            <p class="success-message">
+                Seu pagamento foi processado com sucesso.<br>
+                Seus créditos serão adicionados em instantes.
+            </p>
+            <div style="margin: 2rem 0;">
+                <p style="font-size: 0.9rem; color: var(--color-text-secondary);">
+                    💡 <strong>Dica:</strong> Verifique seu email para o recibo.
+                </p>
+            </div>
+            <a href="app.html" class="btn btn-success btn-lg">
+                🔍 Começar a Analisar Agora
+            </a>
+            <div style="margin-top: 1rem;">
+                <a href="pricing.html" style="color: var(--color-text-secondary); text-decoration: none;">
+                    Ver mais planos
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

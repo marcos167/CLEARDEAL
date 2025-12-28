@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Pendente - ClearDeal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="logo.css">
+    <style>
+        .pending-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--color-warning-light) 0%, var(--color-warning) 100%);
+        }
+
+        .pending-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+        }
+
+        .pending-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pending-title {
+            color: var(--color-warning);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pending-page">
+        <div class="pending-card">
+            <div class="pending-icon">⏳</div>
+            <h1 class="pending-title">Pagamento Pendente</h1>
+            <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">
+                Seu pagamento está sendo processado.<br>
+                Você receberá uma confirmação por email assim que for aprovado.
+            </p>
+            <div style="margin: 2rem 0; padding: 1rem; background: var(--color-warning-light); border-radius: 8px;">
+                <p style="font-size: 0.9rem; margin: 0;">
+                    💡 Isso pode levar alguns minutos. Não se preocupe!
+                </p>
+            </div>
+            <a href="index.html" class="btn btn-secondary btn-lg">
+                Voltar para o Início
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

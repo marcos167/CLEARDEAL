@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Não Aprovado - ClearDeal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="logo.css">
+    <style>
+        .failure-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--color-danger-light) 0%, var(--color-danger) 100%);
+        }
+
+        .failure-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+        }
+
+        .failure-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .failure-title {
+            color: var(--color-danger);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="failure-page">
+        <div class="failure-card">
+            <div class="failure-icon">❌</div>
+            <h1 class="failure-title">Pagamento Não Aprovado</h1>
+            <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">
+                Não foi possível processar seu pagamento.<br>
+                Isso pode acontecer por diversos motivos.
+            </p>
+            <div
+                style="margin: 2rem 0; padding: 1.5rem; background: var(--color-gray-light); border-radius: 8px; text-align: left;">
+                <p style="font-weight: bold; margin-bottom: 0.5rem;">Possíveis causas:</p>
+                <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.9rem; color: var(--color-text-secondary);">
+                    <li>Dados do cartão incorretos</li>
+                    <li>Saldo insuficiente</li>
+                    <li>Cartão expirado ou bloqueado</li>
+                    <li>Limite de crédito excedido</li>
+                </ul>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="pricing.html" class="btn btn-primary">
+                    🔄 Tentar Novamente
+                </a>
+                <a href="index.html" class="btn btn-secondary">
+                    Voltar ao Início
+                </a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--color-text-secondary);">
+                Precisa de ajuda? Entre em contato: <a href="mailto:contato@cleardeal.com">contato@cleardeal.com</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
