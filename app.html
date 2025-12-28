@@ -7,6 +7,7 @@
     <title>Analisar Documento - ClearDeal</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="app-auth.css">
     <link rel="stylesheet" href="logo.css">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
@@ -21,9 +22,33 @@
                 <a href="index.html" class="app-brand">
                     <img src="logo.png" alt="ClearDeal" class="app-logo-img">
                 </a>
-                <div class="app-credits">
-                    <span class="credits-label">Análises disponíveis:</span>
-                    <span class="credits-count" id="creditsCount">1 grátis</span>
+                <div class="app-nav-right">
+                    <div class="app-credits">
+                        <span class="credits-label">Análises:</span>
+                        <span class="credits-count" id="creditsCount">1 grátis</span>
+                    </div>
+                    <!-- User menu (hidden by default, shown when logged in) -->
+                    <div id="userMenu" class="user-menu" style="display: none;">
+                        <button class="user-menu-btn" onclick="toggleUserMenu()">
+                            <span id="userInitials">U</span>
+                        </button>
+                        <div id="userMenuDropdown" class="user-menu-dropdown">
+                            <div class="user-menu-info">
+                                <span id="userEmail">user@example.com</span>
+                            </div>
+                            <a href="#" onclick="viewHistory(); return false;">📊 Meu Histórico</a>
+                            <a href="#" onclick="Auth.signOut(); return false;">🚪 Sair</a>
+                        </div>
+                    </div>
+                    <!-- Login button (shown when NOT logged in) -->
+                    <a href="login.html" id="loginBtn" class="app-login-btn">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                        Entrar
+                    </a>
                 </div>
             </div>
         </div>
