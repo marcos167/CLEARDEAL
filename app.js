@@ -61,11 +61,12 @@ const AppState = {
     }
 };
 
-// ============================================
-// AI ANALYSIS ENGINE
-// ============================================
 
 const AnalysisEngine = {
+    // Gemini API Configuration
+    GEMINI_API_KEY: 'AIzaSyCvlN_byI5Lg5ixlN5bNp1wPEJuRQdpRJQ',
+    GEMINI_API_URL: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent',
+
     // FIXED STRUCTURED PROMPT - Garante saída consistente
     buildPrompt(documentText, context) {
         const contextMap = {
@@ -118,50 +119,65 @@ REGRAS OBRIGATÓRIAS:
 5. Seja direto e prático
 6. Não prometa consultoria jurídica - use linguagem probabilística ("geralmente", "pode", "tende a")
 7. Cite artigos do CDC quando aplicável mas explique em português claro
+8. Adicione emojis relevantes nos itens para facilitar visualização (🚨, 💰, ⚠️, ✅, ❌, etc)
 
 Responda APENAS com o JSON, sem texto adicional.`;
     },
 
     async analyze(documentText, context) {
-        // PLACEHOLDER: Aqui você colocará a integração com Gemini API
-        // Por enquanto, retorna exemplo estruturado
-
         try {
-            // Simulação de API call (remova quando integrar Gemini de verdade)
-            await this.simulateAPIDelay();
-
-            // EXEMPLO de resposta estruturada
-            const mockResponse = this.getMockAnalysis(context);
-
-            // TODO: Substituir por chamada real à Gemini API:
-            /*
-            const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                contents: [{
-                  parts: [{ text: this.buildPrompt(documentText, context) }]
-                }]
-              })
+            // Real Gemini API Call
+            const response = await fetch(`${this.GEMINI_API_URL}?key=${this.GEMINI_API_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{ text: this.buildPrompt(documentText, context) }]
+                    }],
+                    generationConfig: {
+                        temperature: 0.4,
+                        topK: 32,
+                        topP: 1,
+                        maxOutputTokens: 2048,
+                    }
+                })
             });
-            
-            const data = await response.json();
-            const jsonText = data.candidates[0].content.parts[0].text;
-            const analysis = JSON.parse(jsonText);
-            */
 
-            return mockResponse;
+            if (!response.ok) {
+                throw new Error(`API error: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            // Extract JSON from response
+            let jsonText = data.candidates[0].content.parts[0].text;
+
+            // Clean up response (remove markdown code blocks if present)
+            jsonText = jsonText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+
+            // Parse and validate
+            const analysis = JSON.parse(jsonText);
+
+            // Validate required fields
+            if (!analysis.risco || !analysis.resumo || !analysis.pontos_atencao) {
+                throw new Error('Resposta incompleta da IA');
+            }
+
+            return analysis;
 
         } catch (error) {
             console.error('Erro na análise:', error);
+
+            // Fallback to mock only if API fails
+            if (error.message.includes('API') || error.message.includes('parse')) {
+                console.warn('Usando análise de exemplo devido a erro na API');
+                return this.getMockAnalysis(context);
+            }
+
             throw new Error('Não foi possível analisar o documento. Tente novamente.');
         }
     },
 
-    async simulateAPIDelay() {
-        // Simula tempo de processamento da IA
-        return new Promise(resolve => setTimeout(resolve, 3000));
-    },
 
     getMockAnalysis(context) {
         // MOCK para demonstração - remover quando integrar API real
