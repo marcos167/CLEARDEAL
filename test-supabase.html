@@ -1,0 +1,62 @@
+<!-- Supabase CDN Authentication Test -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teste Supabase</title>
+</head>
+
+<body>
+    <h1>Teste de Conexão Supabase</h1>
+    <div id="status"></div>
+
+    <!-- Supabase via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+
+        try {
+            // Criar cliente Supabase via CDN
+            const { createClient } = supabase;
+
+            const supabaseUrl = 'https://gjpmhgqdqnqgjwwaljkx.supabase.co';
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdqcG1oZ3FkcW5xZ2p3d2Fsamt4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5NDM5MTEsImV4cCI6MjA4MjUxOTkxMX0.p1-FND-PRllv9zzvsB06YCBDfbk2P2yJ2CG9te8UmAY';
+
+            const client = createClient(supabaseUrl, supabaseKey);
+
+            statusDiv.innerHTML = `
+        <p style="color: green;">✅ Supabase client criado com sucesso!</p>
+        <p>URL: ${supabaseUrl}</p>
+        <button onclick="testConnection()">Testar Conexão</button>
+      `;
+
+            window.supabaseClient = client;
+
+            async function testConnection() {
+                statusDiv.innerHTML += '<p>Testando conexão...</p>';
+
+                try {
+                    const { data, error } = await client.from('profiles').select('count');
+
+                    if (error) {
+                        statusDiv.innerHTML += `<p style="color: orange;">⚠️ Erro: ${error.message}</p>`;
+                        statusDiv.innerHTML += `<p>Isso é normal se você ainda não executou o SQL no Supabase</p>`;
+                    } else {
+                        statusDiv.innerHTML += `<p style="color: green;">✅ Conexão funcionando! Dados recebidos.</p>`;
+                    }
+                } catch (e) {
+                    statusDiv.innerHTML += `<p style="color: red;">❌ Erro: ${e.message}</p>`;
+                }
+            }
+
+            window.testConnection = testConnection;
+
+        } catch (error) {
+            statusDiv.innerHTML = `<p style="color: red;">❌ Erro ao inicializar: ${error.message}</p>`;
+        }
+    </script>
+</body>
+
+</html>
