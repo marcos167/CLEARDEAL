@@ -1,0 +1,23 @@
+/* Logo Images Styling */
+.nav-logo-img,
+.app-logo-img,
+.footer-logo-img {
+    height: 2.5rem;
+    width: auto;
+    object-fit: contain;
+}
+
+.app-logo-img {
+    height: 2rem;
+}
+
+.footer-logo-img {
+    height: 2rem;
+}
+
+/* Adjust brand spacing */
+.nav-brand,
+.app-brand,
+.footer-brand {
+    align-items: center;
+}
