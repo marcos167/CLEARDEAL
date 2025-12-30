@@ -112,6 +112,28 @@ Ou conecte o repositório GitHub diretamente no painel da Vercel.
 - Firebase Hosting
 - Cloudflare Pages
 
+---
+
+## 🤖 Tecnologia
+
+Este projeto foi desenvolvido por **Marco Antonio de Souza** com assistência de IA (**Google Gemini**) para acelerar o desenvolvimento e garantir código de qualidade enterprise-grade.
+
+**Stack principal:**
+- Frontend: HTML5, CSS3, JavaScript vanilla
+- IA: Google Gemini API + OpenAI GPT-4
+- Pagamentos: Mercado Pago SDK (Brasil)
+- Hosting: Vercel
+- Compliance: LGPD, CDC, OAB Lei 8.906/94
+
+**Diferenciais:**
+- ✅ 100% LGPD compliant
+- ✅ Validação CPF/CNPJ (Receita Federal)
+- ✅ Disclaimer OAB Art. 1º Lei 8.906/94
+- ✅ Cookie consent banner
+- ✅ Payment result pages
+
+---
+
 ## 🔑 Configuração de API
 
 Para integrar a análise com IA real:
