@@ -6,9 +6,9 @@
 
 // Add WhatsApp floating button to page
 function addWhatsAppButton() {
-    // Configuration - UPDATE WITH YOUR REAL NUMBER!
+    // Configuration - REAL NUMBER
     const config = {
-        phoneNumber: '5511999999999', // TROCAR PELO SEU NÚMERO REAL
+        phoneNumber: '5511915000125', // Marco's WhatsApp
         message: 'Olá! Vim do site ClearDeal e preciso de ajuda 🔍',
         position: 'right' // 'right' or 'left'
     };
